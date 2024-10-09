@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    PostList
+{% endblock title %}
+
+{% block content %}
+<section>
+    <h1>Post List</h1>
+    <p>Check out my <a href="/">Home</a> page</p>
+    {% for post in posts%}
+        <article>
+            <a href="{% url "posts:pagina" slug=post.slug%}">{{post.slug}}</a>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.date }}</p>
+            <p>{{ post.body }}</p>
+        </article>
+
+    {% endfor %}
+
+    
+</section>
+{% endblock content %}
+
